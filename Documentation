@@ -1,0 +1,23 @@
+Library Management system
+
+
+I have designed a Library Management System where admin can Perform CRUD(Create,Retrive,Update,Delete)Operations. and student can view the list of the books
+
+1.home_view:-
+    For the welcome page home_view function is created where index.html file is rendered.
+2.adminclick_view--
+    this function is used to define the page after admin successfully loggedin and if not it will asked to signup or login
+3.adminsignup_view--
+    this function allowes to create new admin
+4.is_admin--
+    checks admin has logged in or not
+5.afterlogin_view--
+    render the html page which will show once admin has logged in and also shows the function admin can do
+6.Following functions are defined for the operations admin can perform
+    1.addbook_view
+    2.viewbook_view
+    3.updatebook
+    4.deletebook
+7.studentbook_view --
+    this function lets the student see the books list in library without any login
+    
