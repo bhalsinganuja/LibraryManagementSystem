@@ -16,10 +16,7 @@ def home_view(request):
         return HttpResponseRedirect('afterlogin')
     return render(request,'library/index.html')
 
-#for showing signup/login button for student
 
-
-#for showing signup/login button for teacher
 def adminclick_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
@@ -54,7 +51,7 @@ def afterlogin_view(request):
 @login_required(login_url='adminlogin')
 @user_passes_test(is_admin)
 def addbook_view(request):
-    #now it is empty book form for sending to html
+    
     form=forms.BookForm()
     if request.method=='POST':
         #now this form have data from html
