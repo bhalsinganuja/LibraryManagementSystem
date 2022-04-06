@@ -1,0 +1,31 @@
+{% if books%}
+
+{% for book in books %}
+<div style="display:inline-block">
+
+    <div class="container">
+    
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+        
+            <h2 class="card-title">{{book.name}}</h2>
+            <h2 class="card-title">{{book.Quantity}}</h2>
+            <h2 class="card-title">{{book.author}}</h2>
+            <h2 class="card-title">{{book.category}}</h2>
+              
+              
+              
+              
+          </div>
+          </div>
+        </div>
+        </div>
+{% endfor %}
+
+{%else%}
+<h1>Have 0 book</h1>
+{%endif%}
+
+
+
+ 

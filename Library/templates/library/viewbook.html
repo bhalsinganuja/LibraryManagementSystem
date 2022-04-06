@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <title>ViewBook</title>
+<style media="screen">
+table.redTable {
+border: 2px solid black;
+background-color: whitesmoke;
+width: 100%;
+text-align: center;
+border-collapse: collapse;
+}
+table.redTable td, table.redTable th {
+border: 2px solid black;
+padding: 3px 2px;
+}
+table.redTable tbody td {
+font-size: 15px;
+}
+table.redTable tr:nth-child(even) {
+background: whitesmoke;
+}
+table.redTable thead {
+background: whitesmoke;
+}
+table.redTable thead th {
+font-size: 19px;
+font-weight: bold;
+color:black;
+text-align: center;
+border-left: 2px solid black;
+}
+table.redTable thead th:first-child {
+border-left: none;
+}
+
+table.redTable tfoot {
+font-size: 15px;
+font-weight: bold;
+color: whitesmoke;
+background: black;
+}
+table.redTable tfoot td {
+font-size: 15px;
+}
+table.redTable tfoot .links {
+text-align: right;
+}
+table.redTable tfoot .links a{
+display: inline-block;
+background: whitesmoke;
+color: black;
+padding: 2px 8px;
+border-radius: 1px;
+}
+</style>
+  </head>
+  <body>
+    {% include "library/navbaradmin.html" %}
+    {% load static %}
+    <br>
+    <br>
+    <h3 class="p-3 mb-2  text-black" style = 'font-size: 50px;text-align:center;background-color:#32a852'>Available Book in Library !</h3>
+{% if books%}
+<table class="redTable">
+<thead>
+<tr>
+<th>Book Name</th>
+<th>Quantity</th>
+<th>Author</th>
+<th>Category</th>
+<th>Update</th>
+<th>Delete</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td colspan="6" rowspan="4">
+<div class="links"></div>
+</td>
+</tr>
+</tfoot>
+<tbody>
+  {% for book in books %}
+    <tr>
+      <td>{{book.name}}</td>
+      <td>{{book.Quantity}}</td>
+      <td>{{book.author}}</td>
+      <td>{{book.category}}</td>
+      <td><a class="btn btn-sm btn-info" href="{% url 'updatebook' book.id %}">Update</a></td>
+
+			<td><a class="btn btn-sm btn-danger" href="{% url 'deletebook' book.id %}">Delete</a></td>
+    </tr>
+  {% endfor %}
+</tbody>
+</table>
+{%else%}
+<center><img src="{% static 'images/oops.jpg' %}" height="500px" width="500px"></center><br>
+
+<center><h1>Oops!!! It seems no books in Library!!!</h1></center><br>
+<center><h3>Try to add few books</h3></center>
+{%endif%}
+
+
+<br><br><br><br><br><br><br><br><br>
+  </body>
+</html>
